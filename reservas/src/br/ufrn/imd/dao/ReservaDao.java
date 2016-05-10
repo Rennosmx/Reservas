@@ -19,8 +19,10 @@ public class ReservaDao {
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Reserva salvarOuAtualizar(Reserva reserva) {
-		if(reserva.getId() == 0)
+		if(reserva.getId() == 0){
+			em.persist(reserva.getSalaReservada());	
 			em.persist(reserva);
+		}
 		else
 			em.merge(reserva);
 		return reserva;

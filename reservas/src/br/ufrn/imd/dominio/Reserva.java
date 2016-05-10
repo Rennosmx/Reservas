@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 public class Reserva {
@@ -25,11 +26,25 @@ public class Reserva {
 	private Usuario usuarioAssociado;
 
 	@ManyToOne
-	@JoinColumn(name="id_sala_reservada")
+	@JoinColumn(name="id_sala_reservada")	
 	private Sala salaReservada;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataDeReserva;
+
+	private String alunoCadastrado;
+	
+	public Reserva(){
+		salaReservada = new Sala();
+	}
+
+	public String getAlunoCadastrado() {
+		return alunoCadastrado;
+	}
+
+	public void setAlunoCadastrado(String alunoCadastrado) {
+		this.alunoCadastrado = alunoCadastrado;
+	}
 
 	public int getId() {
 		return id;
@@ -62,5 +77,7 @@ public class Reserva {
 	public void setDataDeReserva(Date dataDeReserva) {
 		this.dataDeReserva = dataDeReserva;
 	}
+	
+	
 
 }

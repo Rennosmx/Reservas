@@ -25,6 +25,11 @@ public class ReservaMBean {
 	@Inject
 	private ReservaDao reservaDao;
 	
+	public ReservaMBean() {
+
+		reserva = new Reserva();
+	}
+
 	public String novaReserva() {
 		reserva = new Reserva();
 		return "/pages/reserva/form.jsf";

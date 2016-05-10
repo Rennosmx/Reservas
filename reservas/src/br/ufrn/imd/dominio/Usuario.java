@@ -1,9 +1,12 @@
 package br.ufrn.imd.dominio;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -22,6 +25,9 @@ public class Usuario {
 	
 	private String nome;
 
+	@OneToMany(mappedBy="usuarioAssociado")
+	private List<Reserva> reservas;
+	
 	public Usuario() { }
 	
 	public Usuario(String login, String senha) {
