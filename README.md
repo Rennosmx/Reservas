@@ -1,5 +1,5 @@
 # reservas
 
-Projeto para com JSF e JPA para cadastrar reservas de salas para usuários.
+Projeto com JSF e JPA para cadastrar reservas contendo alunos e salas.
 
-aewaew
+
